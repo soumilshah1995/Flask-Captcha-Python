@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<body>
+
+
+<div class="container py=4">
+    <h1 class="display-4 text-danger text-center">Flask WTF Forms</h1>
+
+    <form class="p-3 mx-auto form-group" action="/" method="POST">
+
+        <div class="form-group">
+
+            {{ form.csrf_token }}
+
+                <!--String Feild -->
+                <div class="form-group">
+                    {{form.name.label(class="form-control-label",  for="username")}}
+                    {{ form.name(placeholder="Enter name" ,class="form-control", id="username")  }}
+                </div>
+
+                <br>
+
+                <!--Radio Feild -->
+                <div class="form-group">
+                    <div class="radio">
+                        {{form.radio.label(class="form-control-label")}}
+                        {{ form.radio(class="p-2 form-control ")  }}
+                    </div>
+                </div>
+
+                <br>
+
+                <!--Select Feild -->
+                <div class="form-group py=2">
+                    {{ form.select.label(class="form-control-label")  }}
+                    {{  form.select(class="form-control")  }}
+                </div>
+
+                <!--Date Feild -->
+                <div class="form-group py=2">
+
+                    {{form.date.label(class="form-control-label")}}
+                    {{ form.date() }}
+
+                </div>
+
+                <!--Text Feild -->
+                <div class="form-group py=2">
+                   {{ form.comments(placeholder="Enter your Comments", class="form-control") }}
+                </div>
+
+                {{form.recaptcha()}}
+                <br>
+                <!--Button Feild -->
+                <div class="form-group">
+                    {{ form.submit(class="btn-sm btn-primary form-control ")  }}
+                </div>
+
+        </div>
+    </form>
+
+</div>
+
+
+
+</body>
+
+</html>
